@@ -33,7 +33,7 @@ int check_cycle(listint_t *list)
 		}
 		tp = tp->next;
 		check->next = malloc(sizeof(p_s));
-		if (!check)
+		if (!check->next)
 			return (-1);
 
 		check = check->next;
@@ -60,5 +60,4 @@ void free_p(p_s *head)
 		free(current);
 	}
 }
-
 
