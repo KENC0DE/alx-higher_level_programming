@@ -13,11 +13,11 @@ int check_cycle(listint_t *list)
 
 	while (flash && flash->next)
 	{
-		if (flash == snail)
-			return (1);
-
 		flash = flash->next->next;
 		snail = snail->next;
+
+		if (flash == snail)
+			return (1);		
 	}
 	return (0);
 }
