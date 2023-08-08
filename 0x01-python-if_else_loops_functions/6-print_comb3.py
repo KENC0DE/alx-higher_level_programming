@@ -5,4 +5,4 @@ for fnum in range(10):
             print("{}{}".format(fnum, snum), end=', ')
 
     if fnum + 1 == snum:
-        print(f"{fnum + 1}{snum - 1}")
+        print(f"{fnum}{snum}")
