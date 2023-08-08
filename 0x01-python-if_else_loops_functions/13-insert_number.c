@@ -12,7 +12,7 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *tp;
 	listint_t *new;
 
-	if (!head)
+	if (!head || !(*head))
 		return (NULL);
 	if (number < (*head)->n)
 	{
