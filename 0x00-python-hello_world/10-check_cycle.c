@@ -8,56 +8,17 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *tp = list;
-	p_s *cnst, *prs;
-	p_s *check = malloc(sizeof(p_s));
+	listint_t *flash = list;
+	listint_t *snail = list;
 
-	if (!check)
-		return (-1);
-
-	cnst = check;
-	check->p = (void *)tp;
-	check->next = NULL;
-
-	while (tp->next)
+	while (flash && flash->next)
 	{
-		prs = cnst;
-		while (prs)
-		{
-			if (prs->p == tp->next)
-			{
-				free_p(cnst);
-				return (1);
-			}
-			prs = prs->next;
-		}
-		tp = tp->next;
-		check->next = malloc(sizeof(p_s));
-		if (!check->next)
-			return (-1);
+		if (flash == snail)
+			return (1);
 
-		check = check->next;
-		check->p = tp;
-		check->next = NULL;
+		flash = flash->next->next;
+		snail = snail->next;
 	}
-	free_p(cnst);
 	return (0);
-}
-
-/**
- * free_p - frees a p_s list
- * @head: pointer to list to be freed
- * Return: void
- */
-void free_p(p_s *head)
-{
-	p_s *current;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
 }
 
