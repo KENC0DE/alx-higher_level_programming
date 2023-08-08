@@ -17,7 +17,7 @@ int check_cycle(listint_t *list)
 		snail = snail->next;
 
 		if (flash == snail)
-			return (1);		
+			return (1);
 	}
 	return (0);
 }
