@@ -12,7 +12,7 @@ if __name__ == '__main__':
     op = [["+", add], ["-", sub], ["*", mul], ["/", div]]
     for c in op:
         if c[0] == o:
-            print(f"{a} {o} {b} = {c[1](a, b)}")
+            print(f"{a} {o} {b} = {int(c[1](a, b))}")
             ex = 0
     if ex:
         print("Unknown operator. Available operators: +, -, * and /")
