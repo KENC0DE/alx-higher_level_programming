@@ -5,21 +5,15 @@ if __name__ == '__main__':
     if len(sys.argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-
+    ex = 1
     a = int(sys.argv[1])
-    op = sys.argv[2]
+    o = sys.argv[2]
     b = int(sys.argv[3])
-    if op == "+":
-        print(f"{a} {op} {b} = {add(a, b)}")
-    elif op == "-":
-        print(f"{a} {op} {b} = {sub(a, b)}")
-    elif op == "*":
-        print(f"{a} {op} {b} = {mul(a, b)}")
-    elif op == "/":
-        if b == 0:
-            print("can't divide by zero")
-            sys.exit(1)
-        print(f"{a} {op} {b} = {int(div(a, b))}")
-    else:
+    op = [["+", add], ["-", sub], ["*", mul], ["/", div]]
+    for c in op:
+        if c[0] == o:
+            print(f"{a} {o} {b} = {int(c[1](a, b))}")
+            ex = 0
+    if ex:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
