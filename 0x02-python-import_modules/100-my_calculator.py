@@ -16,6 +16,9 @@ if __name__ == '__main__':
     elif op == "*":
         print(f"{a} {op} {b} = {mul(a, b)}")
     elif op == "/":
+        if b == 0:
+            print("can't divide by zero")
+            sys.exit(1)
         print(f"{a} {op} {b} = {int(div(a, b))}")
     else:
         print("Unknown operator. Available operators: +, -, * and /")
