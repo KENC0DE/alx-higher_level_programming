@@ -1,49 +1,6 @@
 #include "lists.h"
 
 /**
- * count - counts list length
- * @lis: the list.
- *
- * Return: the lenght.
-*/
-int count(listint_t *lis)
-{
-	listint_t *tp = lis;
-	int len = 0;
-
-	while (tp)
-	{
-		tp = tp->next;
-		len++;
-	}
-	return (len);
-}
-
-/**
- * dp_half - for half use
- * @head: the head of a linked list.
- * @len: the length.
- *
- * Return: double pointer.
-*/
-listint_t **dp_half(listint_t *head, int len)
-{
-	listint_t *tp, **front;
-	int i;
-
-	front = malloc(sizeof(listint_t *) * len);
-	tp = head;
-	i = 0;
-	while (tp)
-	{
-		front[i] = tp;
-		tp = tp->next;
-		i++;
-	}
-	front[len] = NULL;
-	return (front);
-}
-/**
  * is_palindrome - check weather is palindrom or not
  * @head: passed linked list head.
  *
@@ -51,32 +8,30 @@ listint_t **dp_half(listint_t *head, int len)
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *back, **front;
-	int len = 0, half, i;
+	listint_t *back, *front;
 
 	if (!head)
 		return (-1);
 	else if (!(*head))
 		return (1);
 
-	len = count(*head);
-	front = dp_half(*head, len);
-
-	if (len % 2 != 0)
-		half = (len / 2) + 1;
-	else
-		half = len / 2;
 	back = *head;
-	for (i = len - 1; i >= half; i--)
+	front = *head;
+	while (front)
 	{
-		if (back->n != front[i]->n)
+		if (front->next->next == NULL)
 		{
-			free(front);
-			return (0);
+			if (back->n == front->next->n)
+			{
+				front->next = NULL;
+				back = back->next;
+				front = back;
+			}
+			else
+				return (0);
 		}
-		back = back->next;
+		front = front->next;
 	}
-	free(front);
 	return (1);
 }
 
