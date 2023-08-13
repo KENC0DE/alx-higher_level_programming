@@ -19,18 +19,25 @@ int is_palindrome(listint_t **head)
 	front = *head;
 	while (front)
 	{
-		if (front->next->next == NULL)
+		if (front->next != NULL)
 		{
-			if (back->n == front->next->n)
+			if (front->next->next == NULL)
 			{
-				front->next = NULL;
-				back = back->next;
-				front = back;
+				if (back->n == front->next->n)
+				{
+					front->next = NULL;
+					back = back->next;
+					front = back;
+				}
+				else
+					return (0);
 			}
-			else
-				return (0);
 		}
-		front = front->next;
+		else
+			return (1);
+
+		if (front)
+			front = front->next;
 	}
 	return (1);
 }
