@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <Python.h>
 
+/**
+ * print_python_list_info - give info on the data structure.
+ * @p: pointer to the object.
+*/
 void print_python_list_info(PyObject *p)
 {
 	Py_ssize_t i;
