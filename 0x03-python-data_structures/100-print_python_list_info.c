@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <Python.h>
+#include <listobjct.h>
+#include <object.h>
 
 /**
  * print_python_list_info - give info on the data structure.
