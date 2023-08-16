@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 def best_score(a_dic):
-    if a_dic == {}:
-        return None
-    if a_dic is not None:
+    if a_dic is not None and a_dic != {}:
         name = next(iter(a_dic))
         scr = a_dic.get(name)
         for c in a_dic:
