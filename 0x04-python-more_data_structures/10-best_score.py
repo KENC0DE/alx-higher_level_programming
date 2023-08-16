@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 def best_score(a_dic):
     if a_dic is not None:
-        scr = float('-inf')
-        track = 0
+        name = next(iter(a_dic))
+        scr = a_dic.get(name)
         for c in a_dic:
-            scr = scr if scr > a_dic[c] else a_dic[c]
-            if track != scr:
+            if scr < a_dic[c]:
                 name = c
-                track = scr
+                scr = a_dic[c]
         return name
 
     return None
