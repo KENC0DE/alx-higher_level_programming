@@ -1,0 +1,20 @@
+# EditorConfig is used by some code editors to maintain consistent coding styles
+# Visit http://editorconfig.org for more details
+
+# Top-most EditorConfig file
+root = true
+
+# Default settings for all files
+[*]
+indent_style = tab
+indent_size = 8
+
+# C source code files
+[*.c]
+indent_style = tab
+tab_width = 8
+
+# Python source code files
+[*.py]
+indent_style = space
+indent_size = 4
