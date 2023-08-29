@@ -41,5 +41,5 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(sefl, value):
+    def position(self, value):
         self.__position = value
