@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""Class with prinvate attribut and pre-check assignment"""
 
 
 class Square:
