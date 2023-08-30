@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""classes for a singly-linked list."""
+""" Node Class """
 
 
 class Node:
-    """Node in a singly-linked list."""
+    """ Initializer """
 
     def __init__(self, data, next_node=None):
         self.data = data
@@ -11,17 +11,18 @@ class Node:
 
     @property
     def data(self):
-        return (self.__data)
+        return self.__data
 
     @data.setter
     def data(self, value):
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("data must be an integer")
-        self.__data = value
+        else:
+            self.__data = value
 
     @property
     def next_node(self):
-        return (self.__next_node)
+        return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
@@ -30,34 +31,41 @@ class Node:
         self.__next_node = value
 
 
-""" The Linkind linst Class"""
+"""Singly Linked list class"""
 
 
 class SinglyLinkedList:
-    """The linked list Class init"""
+    """ Initializer """
+
     def __init__(self):
         self.__head = None
 
     def sorted_insert(self, value):
-        new = Node(value)
+        nw = Node(value)
         if self.__head is None:
-            new.next_node = None
-            self.__head = new
+            nw.next_node = None
+            self.__head = nw
         elif self.__head.data > value:
-            new.next_node = self.__head
-            self.__head = new
+            nw.next_node = self.__head
+            self.__head = nw
         else:
-            tmp = self.__head
-            while (tmp.next_node is not None and
-                    tmp.next_node.data < value):
-                tmp = tmp.next_node
-            new.next_node = tmp.next_node
-            tmp.next_node = new
+            tp = self.__head
+            while tp.next_node:
+                if value < tp.next_node.data:
+                    break
+                tp = tp.next_node
+
+            nw.next_node = tp.next_node
+            tp.next_node = nw
 
     def __str__(self):
-        values = []
-        tmp = self.__head
-        while tmp is not None:
-            values.append(str(tmp.data))
-            tmp = tmp.next_node
-        return ('\n'.join(values))
+        if not self.__head:
+            return None
+
+        tp = self.__head
+        inf = []
+        while tp:
+            inf.append(str(tp.data))
+            tp = tp.next_node
+
+        return ("\n".join(inf))
