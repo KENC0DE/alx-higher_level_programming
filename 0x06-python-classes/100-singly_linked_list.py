@@ -59,9 +59,6 @@ class SinglyLinkedList:
             tp.next_node = nw
 
     def __str__(self):
-        if not self.__head:
-            return None
-
         tp = self.__head
         inf = []
         while tp:
