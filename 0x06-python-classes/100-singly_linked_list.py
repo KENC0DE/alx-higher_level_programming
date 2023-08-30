@@ -29,8 +29,10 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+""" The Linkind linst Class"""
 
 class SinglyLinkedList:
+    """The linked list Class init"""
 
     def __init__(self):
         self.__head = None
