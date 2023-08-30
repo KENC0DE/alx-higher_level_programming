@@ -4,9 +4,9 @@
 
 class Square:
     """Initializer"""
-    def __init__(self, size=0, pst=(0, 0)):
-        self.__size = size
-        self.__pst = pst
+    def __init__(self, size=0, position=(0, 0)):
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -23,30 +23,27 @@ class Square:
 
     @property
     def position(self):
-        return self.__pst
+        return self.__position
 
     @position.setter
     def position(self, val):
-        if (type(val) is not tuple or
-                len(val) != 2 or
-                type(val[0]) is not int or
-                type(val[1]) is not int or
-                val[0] < 0 or
-                val[1] < 0):
+        if type(val) is not tuple or len(val) != 2 or \
+           type(val[0]) is not int or val[0] < 0 or \
+           type(val[1]) is not int or val[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__pst = val
+            self.__position = val
 
     def area(self):
-        return self.__size ** 2
+        return (self.__size) ** 2
 
     def my_print(self):
         if self.__size == 0:
             print()
             return
 
-        for sy in range(self.__pst[1]):
+        for sy in range(self.__position[1]):
             print()
         for sq in range(self.__size):
-            print(" " * self.__pst[0], end='')
+            print(" " * self.__position[0], end='')
             print("#" * self.__size)
