@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""Defines a class Square"""
+"""Class with prinvate attribut and pre-check assignment"""
 
 
 class Square:
-    """Represents a square"""
-    def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
-
-    def area(self):
-        return (self.__size) ** 2
+    """Initializer"""
+    def __init__(self, size=0, pst=(0, 0)):
+        self.__size = size
+        self.__pst = pst
 
     @property
     def size(self):
@@ -17,33 +14,40 @@ class Square:
 
     @size.setter
     def size(self, value):
-        if type(value) is not int:
+        if isinstance(value, int) is False:
             raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
         else:
-            if value < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = value
+            self.__size = value
+
+    @property
+    def position(self):
+        """Do Nothing """
+        pass
+
+    @position.setter
+    def position(self, val):
+        if (type(val) is not tuple or
+                len(val) != 2 or
+                type(val[0]) is not int or
+                type(val[1]) is not int or
+                val[0] < 0 or
+                val[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__pst = val
+
+    def area(self):
+        return self.__size ** 2
 
     def my_print(self):
         if self.__size == 0:
             print()
             return
-        for i in range(self.__position[1]):
+
+        for sy in range(self.__pst[1]):
             print()
-        for j in range(self.__size):
-            print("".join([" " for k in range(self.__position[0])]), end="")
-            print("".join(["#" for z in range(self.__size)]))
-
-    @property
-    def position(self):
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        if type(value) is not tuple or len(value) != 2 or \
-           type(value[0]) is not int or value[0] < 0 or \
-           type(value[1]) is not int or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        for sq in range(self.__size):
+            print(" " * self.__pst[0], end='')
+            print("#" * self.__size)
