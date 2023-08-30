@@ -23,8 +23,7 @@ class Square:
 
     @property
     def position(self):
-        """Do Nothing """
-        pass
+        return self.__pst
 
     @position.setter
     def position(self, val):
