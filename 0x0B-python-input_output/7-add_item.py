@@ -18,8 +18,6 @@ def arg_to_list(f_name):
 
 def main():
     """ execution point """
-    if sys.argv is None:
-        return
     f_name = "add_item.json"
     save_to_json_file(sys.argv[1:], f_name)
     arg_to_list(f_name)
