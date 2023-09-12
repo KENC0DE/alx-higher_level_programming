@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 """
-    New Attribute
+    Add attribute
 """
 
 
 def add_attribute(obj, name, a_name):
-    """ add attribute """
+    """
+        add attribute
+    """
 
-    bltc = (int, float, tuple, str, frozenset,
-            bytes, complex, bool, None.__class__)
-
-    if any((isinstance(obj, blt) for blt in bltc)):
+    if not hasattr(obj, '__slots__') and not hasattr(obj, '__dict__'):
         raise TypeError("can't add new attribute")
-    obj.name = a_name
+    if hasattr(obj, '__slots__') and not hasattr(obj, name):
+        raise TypeError("can't add new attribute")
+
+    setattr(obj, name, a_name)
