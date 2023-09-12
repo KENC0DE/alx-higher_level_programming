@@ -6,10 +6,11 @@
 
 def pascal_triangle(n):
     """ Creates pascal triangle """
-    p_triangle = [[1], [1, 1]]
+    p_triangle = []
     cr = 1
     if n <= 0:
         return p_triangle
+    p_triangle = [[1], [1, 1]]
     if n == 1:
         return p_triangle[:-1]
     for i in range(2, n):
