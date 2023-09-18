@@ -3,6 +3,7 @@
 
 
 import json
+import os
 
 
 class Base:
@@ -38,3 +39,28 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        else:
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        fname = cls.__name__ + ".json"
+        if not os.path.exists(fname):
+            return []
+
+        with open(fname, 'r') as jf:
+            to_list = jf.read()
+
+        inst_dict = cls.from_json_string(to_list)
+        inst = []
+        for dic in inst_dict:
+            inst.append(cls.create(**dic))
+
+        return inst
