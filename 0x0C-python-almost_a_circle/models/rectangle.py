@@ -2,15 +2,12 @@
 """
     Rectangle
 """
-
-
 from models.base import Base
 
 
 class Rectangle(Base):
     """ Define Rectangle """
 
-    # ////// Internal Functions ///////
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Initializer """
         self.width = width
@@ -25,7 +22,6 @@ class Rectangle(Base):
                                                        self.__width,
                                                        self.__height)
 
-    # ///// Getters ////////
     @property
     def width(self):
         return self.__width
@@ -42,7 +38,6 @@ class Rectangle(Base):
     def y(self):
         return self.__y
 
-    # ///// Setters ///////
     @width.setter
     def width(self, val):
         if type(val) is not int:
