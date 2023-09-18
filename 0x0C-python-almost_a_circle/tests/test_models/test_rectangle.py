@@ -12,9 +12,11 @@ class TestRectangle(unittest.TestCase):
     """ Test Rectangle better tested. """
 
     def setUp(self):
+        """ test """
         Rectangle._Base__nb_objects = 0
 
     def test_0(self):
+        """ test """
         r1 = Rectangle(10, 2)
         self.assertEqual(r1.id, 1)
 

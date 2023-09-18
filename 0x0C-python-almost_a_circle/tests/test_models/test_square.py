@@ -10,9 +10,11 @@ class TestSquare(unittest.TestCase):
     """ Test Special Rectangle """
 
     def setUp(self):
+        """ test """
         Square._Base__nb_objects = 0
 
     def test_0(self):
+        """ test """
         s1 = Square(5)
         self.assertEqual(s1.area(), 25)
 

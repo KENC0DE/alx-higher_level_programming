@@ -12,6 +12,7 @@ class TestBase(unittest.TestCase):
     """ Inherits from TestCase to test Base """
 
     def test_0(self):
+        """ test """
         b1 = Base()
         self.assertEqual(b1.id, 1)
 
