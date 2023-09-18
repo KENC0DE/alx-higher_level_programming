@@ -33,7 +33,7 @@ class Base:
 
         fname = cls.__name__ + ".json"
         with open(fname, "w") as j_obj:
-            j_obj.write(json.dumps(to_save))
+            j_obj.write(cls.to_json_string(to_save))
 
     @staticmethod
     def from_json_string(json_string):
