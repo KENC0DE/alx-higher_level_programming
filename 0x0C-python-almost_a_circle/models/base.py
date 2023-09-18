@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """ 01 Base """
-
-
 import json
 import os
 
