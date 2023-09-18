@@ -17,27 +17,33 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __str__(self):
+        """ doc """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
     @property
     def width(self):
+        """ doc """
         return self.__width
 
     @property
     def height(self):
+        """ doc """
         return self.__height
 
     @property
     def x(self):
+        """ doc """
         return self.__x
 
     @property
     def y(self):
+        """ doc """
         return self.__y
 
     @width.setter
     def width(self, val):
+        """ doc """
         if type(val) is not int:
             raise TypeError("width must be an integer")
         if val <= 0:
@@ -46,6 +52,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, val):
+        """ doc """
         if type(val) is not int:
             raise TypeError("height must be an integer")
         if val <= 0:
@@ -54,6 +61,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, val):
+        """ doc """
         if type(val) is not int:
             raise TypeError("x must be an integer")
         if val < 0:
@@ -62,6 +70,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, val):
+        """ doc """
         if type(val) is not int:
             raise TypeError("y must be an integer")
         if val < 0:
@@ -69,14 +78,17 @@ class Rectangle(Base):
         self.__y = val
 
     def area(self):
+        """ doc """
         return self.__width * self.__height
 
     def display(self):
+        """ doc """
         print("\n" * self.__y, end='')
         for i in range(self.__height):
             print((" " * self.__x) + ("#" * self.__width))
 
     def update(self, *args, **kwargs):
+        """ doc """
         sarg = (self.id, self.width, self.height, self.x, self.y)
         if args:
             self.id, self.width, self.height, self.x, self.y = \
@@ -86,6 +98,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """ doc """
         dic = {'x': self.__x, 'y': self.__y,
                'id': self.id, 'height': self.__height,
                'width': self.__width}
