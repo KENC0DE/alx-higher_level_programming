@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const list = require('./data.js').list;
+const list = require('./100-data').list;
 console.log(list);
 const newList = list.map((cur, idx) => cur * idx);
 console.log(newList);
