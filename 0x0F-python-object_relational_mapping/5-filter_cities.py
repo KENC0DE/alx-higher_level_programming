@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     query = """SELECT cities.name FROM cities
                 WHERE cities.state_id = (SELECT id FROM states WHERE name = %s)
-                ORDER BY cities.id"""
+                ORDER BY cities.id ASC"""
     cursor.execute(query, (sys.argv[4],))
 
     rec = cursor.fetchall()
