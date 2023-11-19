@@ -21,11 +21,8 @@ if __name__ == '__main__':
 
     rec = cursor.fetchall()
 
-    for i in range(len(rec)):
-        if rec[i] != rec[-1]:
-            print(rec[i][0], end=', ')
-        else:
-            print(rec[i][0])
+    ls = list(r[0] for r in rec)
+    print(", ".join(ls))
 
     cursor.close()
     conn.close()
