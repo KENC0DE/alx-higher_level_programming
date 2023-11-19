@@ -12,7 +12,7 @@ if __name__ == '__main__':
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3])
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY id ASC')
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     rec = cursor.fetchall()
 
     for r in rec:
