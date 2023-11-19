@@ -10,8 +10,8 @@ Base = declarative_base()
 
 
 class State(Base):
-    """ State clase to table"""
+    """State Class"""
     __tablename__ = 'states'
-    id = Column(Integer, autoincreament=True, unique=True,
-                nullable=False, primary_key=True)
+    id = Column(Integer, unique=True, nullable=False,
+                autoincrement=True, primary_key=True)
     name = Column(String(128), nullable=False)
