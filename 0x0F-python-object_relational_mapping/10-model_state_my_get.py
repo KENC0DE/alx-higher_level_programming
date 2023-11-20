@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains `a`
+"""Get a state
 """
 
 import sys
