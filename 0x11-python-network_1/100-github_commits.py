@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Time for an interview! 
+    Time for an interview!
 """
 
 
