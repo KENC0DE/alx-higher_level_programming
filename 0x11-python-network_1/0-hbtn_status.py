@@ -6,15 +6,16 @@
 
 import urllib.request
 
-url = "https://alx-intranet.hbtn.io/status"
+if __name__ == "__main__":
+    url = "https://alx-intranet.hbtn.io/status"
 
-r = urllib.request.Request(url)
-with urllib.request.urlopen(r) as rps:
-    got = rps.read()
+    r = urllib.request.Request(url)
+    with urllib.request.urlopen(r) as rps:
+        got = rps.read()
 
-f_rps = f"""Body response:
-    - type: {type(got)}
-    - content: {got}
-    - utf8 content: {got.decode('utf-8')}"""
+    f_rps = f"""Body response:
+        - type: {type(got)}
+        - content: {got}
+        - utf8 content: {got.decode('utf-8')}"""
 
-print(f_rps)
+    print(f_rps)
