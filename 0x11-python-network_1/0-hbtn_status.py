@@ -13,9 +13,7 @@ if __name__ == "__main__":
     with urllib.request.urlopen(r) as rps:
         got = rps.read()
 
-    f_rps = f"""Body response:
-        - type: {type(got)}
-        - content: {got}
-        - utf8 content: {got.decode('utf-8')}"""
-
-    print(f_rps)
+    print("Body response:")
+    print(f"\t- type: {type(got)}")
+    print(f"\t- content: {got}")
+    print(f"\t- utf8 content: {got.decode('utf-8')}")
